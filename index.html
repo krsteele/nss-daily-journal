@@ -19,16 +19,17 @@
                 <h2>Daily Journal</h2>
                 <form action="">
                     <fieldset>
-                        <label for="journalDate">Date of entry</label>
-                        <input type="date" name="journalDate" id="journalDate">
+                        <label class="formItem__label" journalDate">Date of entry</label>
+                        <input class="formItem__input" type="date" name="journalDate" id="journalDate">
+                    </fieldset>
+                    
+                    <fieldset>
+                        <label class="formItem__label" for="journalConcepts">Concepts covered</label>
+                        <input class="formItem__input" type="text" name="journalConcepts" id="journalConcepts">
                     </fieldset>
                     <fieldset>
-                        <label for="journalConcepts">Concepts covered</label>
-                        <input type="text" name="journalConcepts" id="journalConcepts">
-                    </fieldset>
-                    <fieldset>
-                        <label for="journalMood">Mood for the day</label>
-                        <select name="journalMood" id="journalMood">
+                        <label class="formItem__label" for="journalMood">Mood for the day</label>
+                        <select class="formItem__input" name="journalMood" id="journalMood">
                             <option value="happy">happy as a hippo</option>
                             <option value="angry">angry as a duck</option>
                             <option value="sad">sad as a chicken</option>
@@ -43,8 +44,8 @@
                         </select>
                     </fieldset>
                     <fieldset>
-                        <label for="journalSummary">Summary of Day</label>
-                        <textarea name="journalSummary" id="journalSummary" cols="50" rows="10" placeholder="What did you learn today? What are your plans for tomorrow?"></textarea>
+                        <label class="formItem__label" for="journalSummary">Summary of Day</label>
+                        <textarea class="formItem__input" name="journalSummary" id="journalSummary" cols="50" rows="10" placeholder="What did you learn today? What are your plans for tomorrow?"></textarea>
                     </fieldset>
                     <input type="submit" value="One for the Record Books">
                 </form>
