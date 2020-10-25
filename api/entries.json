@@ -34,6 +34,13 @@
       "entry": "Worked with Jayna and David B on our second group project. I love working with them. Learned from David to keep a scratch.txt file to throw code and notes that you might want later. Also learned git diff {file name} to see what has changed in a file since the last commit. And saw him comment each file separately on his commits. ",
       "mood": "happy",
       "id": 5
+    },
+    {
+      "date": "2020-10-14",
+      "concept": "Modern Farm and Career Dev",
+      "entry": "We had a Career Dev talk today and found out all of the things they will be expecting of us and helping us with. So exciting! I finished the main part of Modern Farm today and passed all the tests! Also, I think I finally figured out my ssh key issue. ",
+      "mood": "excited",
+      "id": 6
     }
   ]
 }
