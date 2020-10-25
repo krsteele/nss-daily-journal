@@ -1,3 +1,5 @@
+import { saveEntry } from "./JournalDataProvider.js"
+
 const contentTarget = document.querySelector(".formContainer")
 
 const eventHub = document.querySelector("#container")
