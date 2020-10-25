@@ -1,6 +1,6 @@
 import { getEntries, useJournalEntries } from "./JournalDataProvider.js"
 import { EntryListComponent } from "./JournalEntryList.js"
-import { NoteForm } from "./JournalForm.js"
+import { JournalForm } from "./JournalForm.js"
 
 console.log("Welcome to the main module")
 
@@ -9,4 +9,4 @@ console.log("Welcome to the main module")
 EntryListComponent()
 getEntries()
 
-NoteForm()  
+JournalForm()  

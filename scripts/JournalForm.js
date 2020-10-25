@@ -1,5 +1,28 @@
 const contentTarget = document.querySelector(".formContainer")
 
+const eventHub = document.querySelector("#container")
+
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id === "saveEntry"){
+    // console.log(clickEvent)
+    const date = document.querySelector("#journalDate").value 
+    const concept = document.querySelector("#journalConcepts").value
+    const mood = document.querySelector("#journalMood").value
+    const entry = document.querySelector("#journalSummary").value
+
+    const newJournalObj = {
+        date,
+        concept,
+        entry,
+        mood
+    }
+    // console.log(newJournalObj)
+
+    saveEntry(newJournalObj)
+    JournalForm()
+}
+})
+
 const renderForm = () => {
     contentTarget.innerHTML = `       
         <label class="journalDate" for="journalDate">Date of entry</label>
@@ -32,7 +55,7 @@ const renderForm = () => {
 }
 
 
-export const NoteForm = () => {
+export const JournalForm = () => {
     renderForm()
 }
 
