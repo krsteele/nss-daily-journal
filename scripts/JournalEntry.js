@@ -4,7 +4,7 @@
  */
 export const JournalEntryComponent = (entry) => {
     return `
-        <div id="entry--${entry.id}" class="journalEntry">
+        <div id="entry--${entry.id}" class="entryCard">
             <h3>${entry.concept}</h3>
             <p>${entry.date}</p>
             <p>${entry.mood}</p>
