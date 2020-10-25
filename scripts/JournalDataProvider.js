@@ -9,6 +9,8 @@
 // This is the original data.
 let journal = []
 
+const eventHub = document.querySelector("#container")
+
 /*
     You export a function that provides a version of the
     raw data in the format that you want
@@ -22,11 +24,26 @@ export const getEntries = () => {
         })
 }
 
-
 export const useJournalEntries = () => {
     const sortedByDate = journal.sort(
         (currentEntry, nextEntry) =>
             Date.parse(currentEntry.date) - Date.parse(nextEntry.date)
             )
             return sortedByDate
+}
+
+export const saveEntry = (object) => {
+    return fetch("http://localhost:8088/entries", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'},
+        body: JSON.stringify(object)
+    })
+    .then(getEntries())
+    .then(dispatchStateChangeEvent)
+}
+
+const dispatchStateChangeEvent = () => {
+    const entryStateChangedEvent = new CustomEvent("entryStateChanged")
+    eventHub.dispatchEvent(entryStateChangedEvent)
 }
