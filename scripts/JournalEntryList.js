@@ -1,22 +1,34 @@
-import { useJournalEntries } from "./JournalDataProvider.js"
+import { getEntries, useJournalEntries } from "./JournalDataProvider.js"
 import { JournalEntryComponent } from "./JournalEntry.js"
 
 // DOM reference to where all entries will be rendered
-const entryLog = document.querySelector("#entryLog")
+const contentTarget = document.querySelector(".entryContainer")
+
+// reference to eventHub
+const eventHub = document.querySelector("#container")
+
+// listen for state change event, then refresh entry list
+eventHub.addEventListener("entryStateChanged", () => EntryListComponent())
 
 export const EntryListComponent = () => {
     // use journal entry data from the data provider component
-    const entries = useJournalEntries()
-
+    getEntries()
+    .then(() => {
+        const entries = useJournalEntries()
+        renderEntries(entries) 
+    })
+}
+    
+const renderEntries = (array) => {
     let journalHTMLRepresentations = ""
 
-    for (const entry of entries) {
+    for (const obj of array) {
+        journalHTMLRepresentations += JournalEntryComponent(obj)
+        // console.log(journalHTMLRepresentations)
         
-        journalHTMLRepresentations = JournalEntryComponent(entry)
-        console.log(journalHTMLRepresentations)
-        
-        entryLog.innerHTML += `
+        contentTarget.innerHTML = `
         <section class="entryList">
+            <h2>Journal Entries</h2>
             ${journalHTMLRepresentations}
         </section>`
     }
