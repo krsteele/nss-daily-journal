@@ -43,6 +43,14 @@ export const saveEntry = (object) => {
     .then(dispatchStateChangeEvent)
 }
 
+export const deleteEntry = entryId => {
+    return fetch(`http://localhost:8088/entries/${entryId}`, {
+        method: "DELETE"
+    })
+    .then(getEntries)
+    .then(dispatchStateChangeEvent)
+}
+
 const dispatchStateChangeEvent = () => {
     const entryStateChangedEvent = new CustomEvent("entryStateChanged")
     eventHub.dispatchEvent(entryStateChangedEvent)
