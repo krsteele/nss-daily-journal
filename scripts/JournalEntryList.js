@@ -36,8 +36,8 @@ const renderEntries = (array) => {
         // console.log(journalHTMLRepresentations)
         
         contentTarget.innerHTML = `
+        <h2>Journal Entries</h2>
         <section class="entryList">
-            <h2>Journal Entries</h2>
             ${journalHTMLRepresentations}
         </section>`
     }

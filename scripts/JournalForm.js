@@ -28,12 +28,16 @@ eventHub.addEventListener("click", clickEvent => {
 
 const renderForm = (arrayOfMoods) => {
     contentTarget.innerHTML = `       
+        <h2>Daily Journal</h2>
+        <div class="form__set">
         <label class="journalDate" for="journalDate">Date of entry</label>
         <input class="journalDate" type="date" name="journalDate" id="journalDate">
-        
+        </div>
+        <div class="form__set">
         <label class="journalConcepts" for="journalConcepts">Concepts covered</label>
         <input class="journalConcepts" type="text" name="journalConcepts" id="journalConcepts">
-                    
+        </div>
+        <div class="form__set">
         <label class="journalMood" for="journalMood">Mood for the day</label>
         <select class="journalMood" name="journalMood" id="journalMood">
         ${
@@ -44,12 +48,15 @@ const renderForm = (arrayOfMoods) => {
             ).join("")
         }
         </select>
-                    
+        </div>
+        <div class="form__set">
         <label class="journalSummary" for="journalSummary">Summary of Day</label>
         <textarea class="journalSummary" name="journalSummary" id="journalSummary" cols="50" rows="10" placeholder="What did you learn today? What are your plans for tomorrow?"></textarea>
-        
+        </div>
+        <div class="button">
         <button id="saveEntry">Save Entry</button>
-        `
+        </div>
+    `
 
 }
 
