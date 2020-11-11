@@ -9,6 +9,7 @@ export const JournalEntryComponent = (entry) => {
             <p>${entry.date}</p>
             <p>${entry.mood.label}</p>
             <p>${entry.entry}</p>
+            <button id="deleteEntry--${entry.id}">Delete</button>
         </div>
     `
 }
