@@ -7,7 +7,7 @@ export const JournalEntryComponent = (entry) => {
         <div id="entry--${entry.id}" class="entryCard">
             <h3>${entry.concept}</h3>
             <p>${entry.date}</p>
-            <p>${entry.mood}</p>
+            <p>${entry.mood.label}</p>
             <p>${entry.entry}</p>
         </div>
     `
