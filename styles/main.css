@@ -20,9 +20,43 @@ h1,h2,h3,h4,h5,h6 {
 
 /* Flexbox
 ---------------------------------------------------------------- */
-fieldset {
+/* main {
+	display: flex;
+} */
+
+
+.formContainer {
 	display: flex;
 	flex-direction: column;
 }
 
+.form__set {
+	display: flex;
+	padding: 10px;
+	justify-content: left;
 
+}
+
+label {
+	text-align: right;
+	padding: 0 15px;
+}
+
+.entryList {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.entryCard {
+	border: 1px dotted gray;
+	border-radius: 3px;
+	padding: 10px;
+	margin: 10px;
+	width: 250px;
+}
+
+.button {
+	display:flex;
+	justify-content: left;
+}
