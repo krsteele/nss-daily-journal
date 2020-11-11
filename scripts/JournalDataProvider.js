@@ -16,7 +16,7 @@ const eventHub = document.querySelector("#container")
     raw data in the format that you want
 */
 export const getEntries = () => {
-    return fetch("http://localhost:8088/entries")
+    return fetch("http://localhost:8088/entries?_expand=mood")
         .then(response => response.json())
         .then(entries => {
             console.log(entries)
@@ -39,7 +39,7 @@ export const saveEntry = (object) => {
             'Content-Type': 'application/json'},
         body: JSON.stringify(object)
     })
-    .then(getEntries())
+    .then(getEntries)
     .then(dispatchStateChangeEvent)
 }
 

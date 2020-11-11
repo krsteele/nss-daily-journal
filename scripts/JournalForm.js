@@ -1,4 +1,5 @@
 import { saveEntry } from "./JournalDataProvider.js"
+import { getMoods, useMoods } from "./MoodProvider.js"
 
 const contentTarget = document.querySelector(".formContainer")
 
@@ -9,23 +10,23 @@ eventHub.addEventListener("click", clickEvent => {
     // console.log(clickEvent)
     const date = document.querySelector("#journalDate").value 
     const concept = document.querySelector("#journalConcepts").value
-    const mood = document.querySelector("#journalMood").value
+    const moodId = parseInt(document.querySelector("#journalMood").value)
     const entry = document.querySelector("#journalSummary").value
 
     const newJournalObj = {
         date,
         concept,
         entry,
-        mood
+        moodId
     }
-    // console.log(newJournalObj)
+    console.log(newJournalObj)
 
     saveEntry(newJournalObj)
     JournalForm()
 }
 })
 
-const renderForm = () => {
+const renderForm = (arrayOfMoods) => {
     contentTarget.innerHTML = `       
         <label class="journalDate" for="journalDate">Date of entry</label>
         <input class="journalDate" type="date" name="journalDate" id="journalDate">
@@ -35,17 +36,13 @@ const renderForm = () => {
                     
         <label class="journalMood" for="journalMood">Mood for the day</label>
         <select class="journalMood" name="journalMood" id="journalMood">
-            <option value="happy">happy</option>
-            <option value="angry">angry</option>
-            <option value="sad">sad</option>
-            <option value="grumpy">grumpy</option>
-            <option value="excited">excited</option>
-            <option value="worried">worried</option>
-            <option value="content">content</option>
-            <option value="amused">amused</option>
-            <option value="confused">confused</option>
-            <option value="deflated">lost all my fizz</option>
-            <option value="frazzled">frazzled</option>
+        ${
+            arrayOfMoods.map(
+                (mood) => {
+                    return `<option value="${ mood.id }">${ mood.label }</option>`
+                }
+            ).join("")
+        }
         </select>
                     
         <label class="journalSummary" for="journalSummary">Summary of Day</label>
@@ -58,9 +55,9 @@ const renderForm = () => {
 
 
 export const JournalForm = () => {
-    renderForm()
+    getMoods()
+        .then(() => {
+            const moodArray = useMoods()
+            renderForm(moodArray)
+})
 }
-
-
-
-                    
