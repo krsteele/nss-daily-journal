@@ -1,4 +1,4 @@
-import { getEntries, useJournalEntries } from "./JournalDataProvider.js"
+import { deleteEntry, getEntries, useJournalEntries } from "./JournalDataProvider.js"
 import { JournalEntryComponent } from "./JournalEntry.js"
 
 // DOM reference to where all entries will be rendered
@@ -9,6 +9,15 @@ const eventHub = document.querySelector("#container")
 
 // listen for state change event, then refresh entry list
 eventHub.addEventListener("entryStateChanged", () => EntryListComponent())
+
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("deleteEntry--")) {
+        // console.log("I hear you want to delete an entry?")
+        const [prefix, id] = clickEvent.target.id.split("--")
+        // console.log("prefix:", prefix, "id:", id)
+        deleteEntry(id)
+    }
+})
 
 export const EntryListComponent = () => {
     // use journal entry data from the data provider component
