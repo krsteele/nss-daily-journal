@@ -1,9 +1,16 @@
+import { useMoods } from "./MoodProvider.js"
+import { MoodFilter } from "./MoodFilter.js"
+
 const contentTarget = document.querySelector(".entries__filters")
 
-<fieldset>
-    <legend>Show all entries for this mood...</legend>
-    <div>
-        <input type="radio" id="moodFilter" name="" value="">
-        <label for="moodFilter">${mood.name}</label>
-    </div>
-</fieldset>
+export const FilterBar = () => {
+    const moods = useMoods()
+    render(moods)
+        
+    }
+
+const render = moodArray => {
+    contentTarget.innerHTML = `
+        ${MoodFilter(moodArray)}
+        `
+}
