@@ -2,7 +2,7 @@ import { deleteEntry, getEntries, useJournalEntries } from "./JournalDataProvide
 import { JournalEntryComponent } from "./JournalEntry.js"
 
 // DOM reference to where all entries will be rendered
-const contentTarget = document.querySelector(".entryContainer")
+const contentTarget = document.querySelector(".entries__container")
 
 // reference to eventHub
 const eventHub = document.querySelector("#container")
