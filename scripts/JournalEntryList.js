@@ -41,3 +41,16 @@ const renderEntries = (array) => {
         </section>`
     }
 }
+
+eventHub.addEventListener("moodFilterChosen", event => {
+    // console.log ("I heard the moodFilterChosen event", event.detail)
+    const allEntries = useJournalEntries()
+    const filteredEntries = allEntries.filter(entry => entry.moodId === event.detail.mood)
+    // console.log("filtered journal entries: ", filteredEntries)
+    if (filteredEntries.length === 0){
+        contentTarget.style.display = "none"
+    } else { 
+        contentTarget.style.display = "block"
+        renderEntries(filteredEntries)}
+        
+})
