@@ -55,6 +55,13 @@
       "entry": "Great talk about networking! Mostly spoke about LinkedIn and how to leverage your profile and contacts. A little overwhelming. He says we should be making 25-50 contacts a day with people and asking them for a chat. Plus posting interesting things often. But also exciting. He was full of positive energy and encouragement. I was worried all day about the election, though, so had a hard time concentrating on anything else.",
       "moodId": 5,
       "id": 8
+    },
+    {
+      "date": "2020-11-12",
+      "concept": "filter journal entries mood filter and display",
+      "entry": "Wow! Today I refactored my journal so that I can filter my entries by mood using radio buttons. At first, I broke all my code and Bryan had to come help. But I eventually got it and feel really good about it. I even learned how to toggle the display so that nothing shows in the entry container when there aren't any entries with the chosen mood. Feel very pleased with myself. ",
+      "moodId": 4,
+      "id": 9
     }
   ],
   "moods": [
