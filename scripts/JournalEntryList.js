@@ -52,5 +52,4 @@ eventHub.addEventListener("moodFilterChosen", event => {
     } else { 
         contentTarget.style.display = "block"
         renderEntries(filteredEntries)}
-        
 })
