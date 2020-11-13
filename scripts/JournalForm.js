@@ -62,9 +62,6 @@ const renderForm = (arrayOfMoods) => {
 
 
 export const JournalForm = () => {
-    getMoods()
-        .then(() => {
             const moodArray = useMoods()
             renderForm(moodArray)
-})
 }

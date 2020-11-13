@@ -19,7 +19,7 @@ export const getEntries = () => {
     return fetch("http://localhost:8088/entries?_expand=mood")
         .then(response => response.json())
         .then(entries => {
-            console.log(entries)
+            // console.log(entries)
             journal = entries
         })
 }

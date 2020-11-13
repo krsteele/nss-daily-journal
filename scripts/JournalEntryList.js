@@ -2,7 +2,7 @@ import { deleteEntry, getEntries, useJournalEntries } from "./JournalDataProvide
 import { JournalEntryComponent } from "./JournalEntry.js"
 
 // DOM reference to where all entries will be rendered
-const contentTarget = document.querySelector(".entryContainer")
+const contentTarget = document.querySelector(".entries__container")
 
 // reference to eventHub
 const eventHub = document.querySelector("#container")
@@ -36,9 +36,21 @@ const renderEntries = (array) => {
         // console.log(journalHTMLRepresentations)
         
         contentTarget.innerHTML = `
-        <h2>Journal Entries</h2>
         <section class="entryList">
             ${journalHTMLRepresentations}
         </section>`
     }
 }
+
+eventHub.addEventListener("moodFilterChosen", event => {
+    // console.log ("I heard the moodFilterChosen event", event.detail)
+    const allEntries = useJournalEntries()
+    const filteredEntries = allEntries.filter(entry => entry.moodId === event.detail.mood)
+    // console.log("filtered journal entries: ", filteredEntries)
+    if (filteredEntries.length === 0){
+        contentTarget.style.display = "none"
+    } else { 
+        contentTarget.style.display = "block"
+        renderEntries(filteredEntries)}
+        
+})
